@@ -49,7 +49,7 @@ class ChoceCityViewController: UIViewController {
 //      CallApi(locationName: Name[0])
         Choce.dataSource = self
         Choce.delegate = self
-        let image = UIImage(named: "hot.jpeg")
+        let image = UIImage(named: "sunny.jpg")
         self.imageIge.image = image
         imageIge.contentMode = .scaleAspectFill
         imageIge.alpha = 0.5
@@ -83,35 +83,35 @@ class ChoceCityViewController: UIViewController {
                 imageIge.alpha = 0.5
 
 //                print(results.records.location[0].weatherElement[0].time[0].parameter.parameterValue)
-                
+
                 if (1...3 ~= Int(results.records.location[0].weatherElement[0].time[0].parameter.parameterValue ?? "")!) {
-                    let image = UIImage(named: "summer.jpeg")
+                    let image = UIImage(named: "sunny.jpg")
                     self.imageIge.image = image
                     imageIge.contentMode = .scaleAspectFill
                     imageIge.alpha = 0.5
                 }
-                
+
                 if (4...10 ~= Int(results.records.location[0].weatherElement[0].time[0].parameter.parameterValue ?? "")!) {
-                    let image = UIImage(named: "cloudy.jpeg")
+                    let image = UIImage(named: "cloud.jpg")
                     self.imageIge.image = image
                     imageIge.contentMode = .scaleAspectFill
                     imageIge.alpha = 0.5
                 }
-                
+
                 if (11...22 ~= Int(results.records.location[0].weatherElement[0].time[0].parameter.parameterValue ?? "")!) {
-                    let image = UIImage(named: "ranin.JPG")
+                    let image = UIImage(named: "rain.jpeg")
                     self.imageIge.image = image
                     imageIge.contentMode = .scaleAspectFill
                     imageIge.alpha = 0.5
                 }
-                
+
                 if (23 ~= Int(results.records.location[0].weatherElement[0].time[0].parameter.parameterValue ?? "")!) {
-                    let image = UIImage(named: "snow.jpg")
+                    let image = UIImage(named: "snow.jpeg")
                     self.imageIge.image = image
                     imageIge.contentMode = .scaleAspectFill
                     imageIge.alpha = 0.5
                 }
-                
+
            
                 
                     self.TodayLbl.text = "\(results.records.location[0].weatherElement[0].time[0].startTime) - \(results.records.location[0].weatherElement[0].time[0].endTime)"
@@ -148,10 +148,10 @@ class ChoceCityViewController: UIViewController {
     func CallApi(locationName: String) {
         
         let url =  initPercent(string: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-C1F1124A-2966-4D8B-9E96-BCDECED47A0E&locationName=\(locationName)")
-      
+        let URL1 = URL(string: "你的網址")
        
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: URL1!) { data, response, error in
             if let error = error {
                 print(error.localizedDescription)
 //                return
